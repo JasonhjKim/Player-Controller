@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachineStuff;
 
-public class PSM : MonoBehaviour {
-	public StateMachine<PSM> stateMachine { get; set;}
+public class Player : MonoBehaviour {
+	public StateMachine<Player> stateMachine;
+	private Dictionary<States, IState<Player>> listStates;
 	PlayerController controller;
 	PlayerBehaviour behaviour;
 	public bool fallingFinish;
@@ -12,10 +13,9 @@ public class PSM : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fallingFinish = false;
-		stateMachine = new StateMachine<PSM> (this);
+		InitializeAllStates ();
 		controller = GetComponent<PlayerController> ();
-		stateMachine.ChangeState (IdleState.Instance);
+		stateMachine.ChangeState (listStates[States.IDLE]);
 		behaviour = GetComponent<PlayerBehaviour> ();
 	}
 	
@@ -74,5 +74,23 @@ public class PSM : MonoBehaviour {
 			return  0;
 		}
 	}
+
+	private void InitializeAllStates() {
+		stateMachine = new StateMachine<Player> (this);
+		listStates = new Dictionary<States, IState<Player>> ();
+		listStates.Add (States.FALL, new FallState ());
+		listStates.Add (States.IDLE, new IdleState ());
+		listStates.Add (States.JUMP, new JumpState ());
+		listStates.Add (States.RUN, new RunState ());
+		listStates.Add (States.WALK, new WalkState ());
+	}
+}
+
+public enum States {
+	FALL,
+	IDLE,
+	JUMP,
+	RUN,
+	WALK
 }
 	
