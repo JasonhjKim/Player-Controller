@@ -3,34 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachineStuff;
 
-public class RunState : State<PSM> {
-	public static RunState _instance;
-	private RunState() {
-		if (_instance != null) {
-			return;
-		}
-		_instance = this;
+public class RunState : IState<Player> {
+
+	public void EnterState(Player _owner) {
+		Debug.Log ("Entering Running State");
 	}
 
-	public static RunState Instance {
-		get { 
-			if (_instance == null) {
-				new RunState ();
-			}
-			return _instance;
-		}
+	public void ExitState(Player _owner) {
+		Debug.Log ("Exiting Running State");
 	}
 
-	public override void EnterState(PSM _owner) {
-
-	}
-
-	public override void ExitState(PSM _owner) {
-
-	}
-
-	public override void UpdateState(PSM _owner) {
-
+	public void UpdateState(Player _owner) {
+		Debug.Log ("Running...");
 	}
 
 }
