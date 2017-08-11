@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using StateMachineStuff;
 
-public class Player : MonoBehaviour {
-	public StateMachine<Player> stateMachine;
-	private Dictionary<States, IState<Player>> listStates;
+public class PlayerMovement : MonoBehaviour {
+	public StateMachine<PlayerMovement> stateMachine;
+	public Dictionary<MovementStates, IState<PlayerMovement>> listMovementStates;
 	PlayerController controller;
 	PlayerBehaviour behaviour;
 	public bool fallingFinish;
@@ -15,7 +14,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		InitializeAllStates ();
 		controller = GetComponent<PlayerController> ();
-		stateMachine.ChangeState (listStates[States.IDLE]);
+		stateMachine.ChangeState (listMovementStates[MovementStates.IDLE]);
 		behaviour = GetComponent<PlayerBehaviour> ();
 	}
 	
@@ -76,17 +75,17 @@ public class Player : MonoBehaviour {
 	}
 
 	private void InitializeAllStates() {
-		stateMachine = new StateMachine<Player> (this);
-		listStates = new Dictionary<States, IState<Player>> ();
-		listStates.Add (States.FALL, new FallState ());
-		listStates.Add (States.IDLE, new IdleState ());
-		listStates.Add (States.JUMP, new JumpState ());
-		listStates.Add (States.RUN, new RunState ());
-		listStates.Add (States.WALK, new WalkState ());
+		stateMachine = new StateMachine<PlayerMovement> (this);
+		listMovementStates = new Dictionary<MovementStates, IState<PlayerMovement>> ();
+		listMovementStates.Add (MovementStates.FALL, new FallState ());
+		listMovementStates.Add (MovementStates.IDLE, new IdleMovementState ());
+		listMovementStates.Add (MovementStates.JUMP, new JumpState ());
+		listMovementStates.Add (MovementStates.RUN, new RunState ());
+		listMovementStates.Add (MovementStates.WALK, new WalkState ());
 	}
 }
 
-public enum States {
+public enum MovementStates {
 	FALL,
 	IDLE,
 	JUMP,
