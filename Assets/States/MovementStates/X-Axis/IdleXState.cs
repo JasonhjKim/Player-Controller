@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class IdleXState: IState<PlayerXMovement> {
+	public void EnterState(PlayerXMovement _owner) {
+		
+	}
+	public void ExitState(PlayerXMovement _owner) {
+		
+	}
+	public void UpdateState(PlayerXMovement _owner) {
+		if (_owner.isMoving ()) {
+			_owner.stateMachine.ChangeState (_owner.dicXMovementStates [XMovementStates.WALK]);
+		}
+	}
+}
