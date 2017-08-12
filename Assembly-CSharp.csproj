@@ -46,23 +46,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Enemy\AttackStates\AttackState.cs" />
+     <Compile Include="Assets\Enemy\Enemy.cs" />
+     <Compile Include="Assets\Enemy\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Enemy\EnemyController.cs" />
+     <Compile Include="Assets\Enemy\MovementStates\ChaseState.cs" />
+     <Compile Include="Assets\Enemy\MovementStates\IdleMovementState.cs" />
+     <Compile Include="Assets\Enemy\MovementStates\PatrolState.cs" />
+     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\IState.cs" />
-     <Compile Include="Assets\PlayerAnimation.cs" />
-     <Compile Include="Assets\PlayerBehaviour.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\Player\PlayerAnimation.cs" />
+     <Compile Include="Assets\Player\PlayerBehaviour.cs" />
+     <Compile Include="Assets\Player\PlayerController.cs" />
+     <Compile Include="Assets\Player\States\AttackStates\BasicAttackState.cs" />
+     <Compile Include="Assets\Player\States\AttackStates\IdleAttackState.cs" />
+     <Compile Include="Assets\Player\States\AttackStates\PlayerAttack.cs" />
+     <Compile Include="Assets\Player\States\AttackStates\SpecialAttackState.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\X-Axis\IdleXState.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\X-Axis\PlayerXMovement.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\X-Axis\RunState.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\X-Axis\WalkState.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\Y-axis\FallState.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\Y-axis\IdleYState.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\Y-axis\JumpState.cs" />
+     <Compile Include="Assets\Player\States\MovementStates\Y-axis\PlayerYMovement.cs" />
      <Compile Include="Assets\StateMachine.cs" />
-     <Compile Include="Assets\States\AttackStates\BasicAttackState.cs" />
-     <Compile Include="Assets\States\AttackStates\IdleAttackState.cs" />
-     <Compile Include="Assets\States\AttackStates\PlayerAttack.cs" />
-     <Compile Include="Assets\States\AttackStates\SpecialAttackState.cs" />
-     <Compile Include="Assets\States\MovementStates\X-Axis\IdleXState.cs" />
-     <Compile Include="Assets\States\MovementStates\X-Axis\PlayerXMovement.cs" />
-     <Compile Include="Assets\States\MovementStates\X-Axis\RunState.cs" />
-     <Compile Include="Assets\States\MovementStates\X-Axis\WalkState.cs" />
-     <Compile Include="Assets\States\MovementStates\Y-axis\FallState.cs" />
-     <Compile Include="Assets\States\MovementStates\Y-axis\IdleYState.cs" />
-     <Compile Include="Assets\States\MovementStates\Y-axis\JumpState.cs" />
-     <Compile Include="Assets\States\MovementStates\Y-axis\PlayerYMovement.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
